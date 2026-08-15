@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Amenities - Decatur Country Club</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#ffdea5",
+                        "outline-variant": "#c3c8c1",
+                        "on-primary-fixed-variant": "#364c3c",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#bfc5e4",
+                        "surface": "#faf9f5",
+                        "secondary-fixed": "#dce1ff",
+                        "secondary-container": "#d8defe",
+                        "surface-tint": "#4d6453",
+                        "on-surface": "#1b1c1a",
+                        "primary-fixed": "#d0e9d4",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2f312e",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "surface-container-highest": "#e3e2df",
+                        "on-secondary-fixed": "#141a32",
+                        "on-primary-container": "#819986",
+                        "primary": "#061b0e",
+                        "surface-dim": "#dbdad6",
+                        "surface-container": "#efeeea",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#3a2800",
+                        "inverse-on-surface": "#f2f1ed",
+                        "surface-container-low": "#f4f4f0",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#b4cdb8",
+                        "on-secondary-fixed-variant": "#3f465f",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "outline": "#737973",
+                        "on-primary-fixed": "#0b2013",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#211500",
+                        "secondary": "#575d78",
+                        "on-tertiary-fixed": "#261900",
+                        "surface-variant": "#e3e2df",
+                        "background": "#faf9f5",
+                        "on-background": "#1b1c1a",
+                        "primary-container": "#1b3022",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#faf9f5",
+                        "on-tertiary-container": "#b18d48",
+                        "on-secondary-container": "#5b617d",
+                        "on-surface-variant": "#434843",
+                        "surface-container-high": "#e9e8e4",
+                        "primary-fixed-dim": "#b4cdb8"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "section-padding": "120px",
+                        "unit": "8px",
+                        "gutter": "32px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Montserrat"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-lg": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "label-sm": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Montserrat"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .image-zoom:hover img {
+            transform: scale(1.05);
+        }
+        .btn-tertiary {
+            position: relative;
+        }
+        .btn-tertiary::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #C5A059;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .btn-tertiary:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .ambient-shadow {
+            box-shadow: 0 10px 30px rgba(27, 48, 34, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pt-24">
+<!-- TopNavBar -->
+<nav class="bg-surface/95 dark:bg-primary/95 text-primary dark:text-primary-fixed font-body-md text-body-md uppercase tracking-widest fixed top-0 w-full z-50 border-b border-tertiary-fixed/20 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="font-display-lg text-headline-md text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity duration-300 scale-95 active:scale-90 transition-transform" href="#">
+                Decatur Country Club
+            </a>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-on-surface dark:text-on-primary-fixed-variant hover:text-on-tertiary-container transition-colors hover:opacity-80 duration-300 scale-95 active:scale-90 transition-transform" href="#">Home</a>
+<a class="text-on-surface dark:text-on-primary-fixed-variant hover:text-on-tertiary-container transition-colors hover:opacity-80 duration-300 scale-95 active:scale-90 transition-transform" href="#">Golf</a>
+<a class="text-on-tertiary-container border-b-2 border-tertiary-fixed pb-1 hover:opacity-80 duration-300 scale-95 active:scale-90 transition-transform" href="#">Amenities</a>
+<a class="text-on-surface dark:text-on-primary-fixed-variant hover:text-on-tertiary-container transition-colors hover:opacity-80 duration-300 scale-95 active:scale-90 transition-transform" href="#">About</a>
+<a class="text-on-surface dark:text-on-primary-fixed-variant hover:text-on-tertiary-container transition-colors hover:opacity-80 duration-300 scale-95 active:scale-90 transition-transform" href="#">Contact</a>
+</div>
+<div class="hidden md:flex items-center space-x-6">
+<span class="text-on-surface-variant font-label-lg text-label-lg">(601) 635-2077</span>
+<a class="bg-primary-container text-on-primary font-label-lg text-label-lg px-6 py-3 rounded hover:bg-primary transition-colors scale-95 active:scale-90" href="#">Inquire</a>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center">
+<div class="absolute inset-0 z-0">
+<img alt="Club grounds hero image" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0F7dY8KKNKm6MxV_ZtFu8Fkowv5ufhUEP2ah3SERXK5_RqmgmE3V1JZ5wjYtWfzUK1BBtuQ6aQynLm9INFegdSrJv_nFghkrvIEWk1gjocZXyMVvIlmhriQiKEkEQuF31DQsVWdzrVF9hBtv3HAcgR2yAcjOX5x7f0dyb8wpKpQsgfVo66u5k2TLygTPwq81nV17sp-zkzgqqKijeiJMH5M3lrup02FjrX4hhbPjrtLnayaqkBQKYY_tqUnHOizz5"/>
+<div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-surface-container-lowest">
+<span class="font-label-lg text-label-lg uppercase tracking-widest text-tertiary-fixed mb-4 block">Decatur Lifestyle</span>
+<h1 class="font-display-lg text-display-lg mb-6">Club Amenities &amp; Family Fun</h1>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto opacity-90">Experience the heart of our community where relaxation and recreation meet in perfect harmony.</p>
+</div>
+</section>
+<!-- Intro/Bento Grid Section -->
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Text Intro -->
+<div class="col-span-1 md:col-span-5 flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg md:text-headline-lg text-primary mb-6">More Than Just Golf</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                        At Decatur Country Club, our amenities are designed to bring families and friends together. From cooling off in the pool to hosting memorable events, our grounds offer a versatile backdrop for Southern living at its finest.
+                    </p>
+<div>
+<a class="btn-tertiary font-label-lg text-label-lg uppercase text-on-surface tracking-wider inline-flex items-center group" href="#events">
+                            Explore Event Spaces
+                            <span class="material-symbols-outlined ml-2 text-on-tertiary-container group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Bento Imagery -->
+<div class="col-span-1 md:col-span-7 grid grid-cols-2 gap-4 h-[600px]">
+<div class="col-span-2 row-span-2 relative overflow-hidden rounded-lg image-zoom group cursor-pointer border border-tertiary-fixed/30 shadow-sm">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="A bright, sunlit outdoor swimming pool at a country club, surrounded by white lounge chairs and green landscaping. Families are relaxing by the water. Light mode, modern classic aesthetic, high-key natural lighting, soft blues and greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjUVf00YqXyYaNsCF3vrtyiDD108hnvjta7NGNnGJrExTHUDvykSEn6tJQ8UIW9moXf5SM2a1sa3cuemh5UH9bFaXwtuM-HeHzEhjJbuyf9v6A9RX8jonhsapRc0Gid7j0Qqp194kOGRj9kKbqyADfzWS9pc8EAPKbmYQRhuD5SMN6fDNZyJ0tDJxe9ZV1e7Va5mzoDerXgQl6WjV2fGwoW4riXLg_uNN5E7_ISuxbFz-tQy-DPmk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-6 left-6 text-surface-container-lowest">
+<h3 class="font-headline-md text-headline-md mb-2">The Pool</h3>
+<p class="font-body-md text-body-md opacity-90">A refreshing oasis</p>
+</div>
+</div>
+<div class="col-span-1 relative overflow-hidden rounded-lg image-zoom group cursor-pointer border border-tertiary-fixed/30 shadow-sm">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="A vibrant, well-maintained children's playground area with modern equipment, set against a backdrop of mature pine trees. Sunny day, light mode aesthetic, warm earth tones and bright primary colors, soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMeKA37Hrf9qOKeZl37U1S-GckwfRx0ZeQ9D87_a4bqCNkGMNMEvozFBRlV550dGl3ROfigCs4VdahReztwv7Wl3-e6k9sSBn1S1TnX4DsZQic6AVjKIZiexpTzfqHgMGiCoc7Lg3t-tfPL_taFG7U_9HtpNWPssRGM_L0YMRzwlm8HVItphxvqSuARqet0cJyNQCIl9TjBsRRdJ2XOAV1O0dWDysHTKpyVfTg0vjvKZKK4TU5LWI"/>
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors"></div>
+</div>
+<div class="col-span-1 relative overflow-hidden rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/50 p-6 text-center">
+<div>
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container mb-3" style="font-variation-settings: 'FILL' 1;">celebration</span>
+<h4 class="font-label-lg text-label-lg uppercase tracking-widest text-primary">Private Events</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Features (Asymmetric Layout) -->
+<section class="bg-surface-container-low py-section-padding border-y border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- The Pool -->
+<div class="flex flex-col md:flex-row items-center gap-gutter mb-32">
+<div class="w-full md:w-1/2 order-2 md:order-1 relative h-[500px] rounded-lg overflow-hidden border border-outline-variant/50 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Close up of crystal clear pool water rippling in the sun, with the edge of a white deck chair visible. Minimalist composition, light mode, bright and airy aesthetic, high contrast between crisp white and vibrant aquatic blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc4L3KSV6nXEo4iUhqa4k1prioUvLvkM08RCCfDljzGY-Sv13oozgUFmUhUMtET_szKuYfS2-57moJeHaEFijR8vIkEqIA7RAeRvyH4Ujyt8eIWTt8dmMCkpcgjQPnl-MIzIKV6kt3dcYsMvK82jHXv_awKHhlZFNXMC5lGDZ4_5W5PeWt6jtGlRJiVyZfPsk3mfq0vvmln-lvrnD-pU5E_uOnCaIlfuJ3FiBbzuCMOcaSB52-8t8"/>
+</div>
+<div class="w-full md:w-1/2 order-1 md:order-2 md:pl-12">
+<span class="inline-block px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm rounded-sm mb-4 uppercase tracking-wider">Summer Season</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">The Pool</h3>
+<div class="w-12 h-px bg-tertiary-fixed/50 mb-6"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            A refreshing oasis for families during Mississippi summers. Our generously sized pool area offers ample lounging space, pristine waters, and a safe environment for both relaxation and aquatic fun.
+                        </p>
+</div>
+</div>
+<!-- The Playground -->
+<div class="flex flex-col md:flex-row items-center gap-gutter mb-32">
+<div class="w-full md:w-1/2 md:pr-12 text-right">
+<span class="inline-block px-3 py-1 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm rounded-sm mb-4 uppercase tracking-wider">Family Focus</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">The Playground</h3>
+<div class="w-12 h-px bg-tertiary-fixed/50 mb-6 ml-auto"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            Safe, fun outdoor space for our youngest members. Nestled near the main clubhouse, the playground ensures children can play safely while parents enjoy nearby amenities or a quiet moment on the patio.
+                        </p>
+</div>
+<div class="w-full md:w-1/2 relative h-[500px] rounded-lg overflow-hidden border border-outline-variant/50 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Children playing on a sophisticated wooden playground structure in a park setting. Soft focus background, light mode aesthetic, warm golden hour lighting, tactile textures of wood and grass, joyful mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNa0IXue12ZGCgy6ZQ6cs03LpomoNQb3qPBDTgeOVqDFIlI6Seqx2OfO32R-RNfjemRFJB_yVmeeeuJKHlWESiVUWbMbK2FPvu9OIt6ETx3gwQ-GSl9sPImUx5eUBoHHR90MLoz8-iYi7Jdd3q2_ALdQ4IB7DFtw6ULFGqHI7lUsXhi8m0g-M-qm30V4GB5IQjPa0GyrQNhBJsffI0n0aJyBQdH5qAN1W-CHutNoeJMkDuzK2FuUk"/>
+</div>
+</div>
+<!-- Events & Reunions -->
+<div class="flex flex-col md:flex-row items-center gap-gutter" id="events">
+<div class="w-full md:w-1/2 order-2 md:order-1 relative h-[500px] rounded-lg overflow-hidden border border-outline-variant/50 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="An elegantly set banquet table outdoors on a lush green lawn, under string lights. White linens, fine china, and subtle floral centerpieces. Light mode, sophisticated country club aesthetic, warm and inviting atmosphere, soft evening light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYF76lhPDk6ycRJeF0Gv7wcVGIVJWm2pxv05vDeA4Z3zDGHeWRDy5o0-yn-HX-7hxDyoy6msuecuFnDrqYMS_oMBphreitamRheuRcs4RsYvpigdw40b48idWmXmfCTw6kCUvYxPjJnhkZoZOjUaRT9KrV96nYD57ZZJUW9dmauOjifMtkI7zOhISNmtojt5l_NTHAKyzmGsiVOD7hcxU_2o78-Jk8fVgxRuOk-BabGJTFho7JKfM"/>
+</div>
+<div class="w-full md:w-1/2 order-1 md:order-2 md:pl-12">
+<span class="inline-block px-3 py-1 bg-tertiary-fixed-dim text-on-tertiary-fixed-variant font-label-sm text-label-sm rounded-sm mb-4 uppercase tracking-wider">Gatherings</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">Events &amp; Reunions</h3>
+<div class="w-12 h-px bg-tertiary-fixed/50 mb-6"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-8">
+                            The perfect local venue for family reunions, weddings, and community gatherings. With adaptable indoor and outdoor spaces, our dedicated staff ensures every event is seamless and memorable against the backdrop of our scenic grounds.
+                        </p>
+<a class="inline-block bg-primary-container text-on-primary font-label-lg text-label-lg px-8 py-4 rounded hover:bg-primary transition-colors shadow-sm hover:shadow-md" href="#">
+                            Plan Your Next Event
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Lifestyle Gallery (Masonry style) -->
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Club Life</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">Moments captured around the grounds.</p>
+</div>
+<div class="columns-1 md:columns-3 gap-4 space-y-4">
+<div class="break-inside-avoid rounded-lg overflow-hidden border border-outline-variant/30">
+<img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500" data-alt="A family laughing together sitting on the edge of a swimming pool, splashing their feet in the water. High-key lighting, bright summer day, light mode aesthetic, candid lifestyle photography, joyful and relaxed mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxeSOMa7ITuE8HPDab2Qvm4OyaGTgwWbN4pjpsj5NbtBAUtWji5c4GCY6WIRTuqejAppd5k5YvU67ZuK7rD8mHhTFA5Uu0i-WbzC89dIZ6E1xzrOwCjhvGXpintjSYewuslzPnvSG9Y9IfTcGvKXCX05MsxO8NeHXNnCDqOqTIzKNuKISlKy7ct317NXnGTLNScu_1cJUMjbg_KOJnQz2UL8CDyDVMhukh5e3oOoruBEXRN3Q2YB0"/>
+</div>
+<div class="break-inside-avoid rounded-lg overflow-hidden border border-outline-variant/30">
+<img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500" data-alt="Detail shot of a perfectly manicured putting green next to the clubhouse patio. Soft morning light, long shadows, crisp greens and white building accents. Quiet luxury aesthetic, minimalist composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ9uzZ_T1m7iNFVlrDq8W6Ju7JMWG9kSKQpFNGI0pND-_2rEQJHXZAg15KtRcTJCTlSUhlxC6SU-EItGAgdwQ0pqJ9gwYzpighXan54xwWlRR5Yu3uzUZlwgwRztJzoFU--8bH13UELlIGQWA76lUhPNEcz29rWnpI92NhVZo3Ti3-YPgN-3q1n1pUjDdgb7F_vphDJrO9y3F_EBE2aEAFIZ7fJZAkAtVA-N-4Q0rWNhXH5t5Ds4o"/>
+</div>
+<div class="break-inside-avoid rounded-lg overflow-hidden border border-outline-variant/30 bg-surface-container p-8 flex items-center justify-center aspect-square">
+<div class="text-center">
+<span class="material-symbols-outlined text-5xl text-on-tertiary-container mb-4" style="font-variation-settings: 'wght' 200;">local_dining</span>
+<p class="font-label-lg text-label-lg text-primary uppercase tracking-widest">Patio Dining<br/>Coming Soon</p>
+</div>
+</div>
+<div class="break-inside-avoid rounded-lg overflow-hidden border border-outline-variant/30">
+<img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500" data-alt="A group of people standing around a large oak tree on the club grounds, talking and smiling holding drinks. Golden hour lighting, warm tones, elegant casual attire. Lifestyle editorial style, community focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzofHDxPpcFnvfLsXOt2ruSr8Lk20vVVnIx-Jc1PIaJs0ixCSlepgZFWE_Nv71z_k4YJSU-0iawpmu4RrFZGLe4PZ6_CAGw9SlYJFSFA0k8cLP1gOxPSGiHEORRHOqtwueiLjcFFcZ7xt9OOC9jU16gB6uWbgZXx_V5FYLJnJG27KFv5aezzBGQ_oWQ9mMynldts49C_Rl6KBe_K4aV4MBuSYEZ7J05c7leT6QXR4sCUrCABjjG8w"/>
+</div>
+<div class="break-inside-avoid rounded-lg overflow-hidden border border-outline-variant/30">
+<img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500" data-alt="A child going down a slide on a bright sunny day at the club playground. Vibrant colors, action shot, soft blurred background of trees. Light mode, happy and energetic mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtqSmpUkEwKom8BcmepHN0gw0fwfuMHI6xUiDdpLI_tidFr4dpsXfnu1TuXusxVHbVgphinZxp44HrRKqqUrFy22tzY0X5NKZUJIXSJ1EIN6m56zTM5oui0NEAJtV_rh3nk5QVwlFJhdE7GTODGaJqjvaT9cQ2hn-LN75hzqmTKwTDUGPgGYIdXaVl4mza1HVyk92Rzq9IzEHINh7r-1yvHgB2txpkOW1deeOw3SBmxOJbi-bLy-A"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-primary-container text-primary dark:text-on-primary-fixed font-body-md text-body-md w-full py-section-padding border-t border-tertiary-fixed/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1 flex flex-col space-y-4">
+<span class="font-display-lg text-headline-md text-primary dark:text-primary-fixed mb-2">Decatur Country Club</span>
+<p class="text-on-surface-variant dark:text-outline-variant">© 2024 Decatur Country Club. All Rights Reserved.</p>
+</div>
+<div class="col-span-1 flex flex-col space-y-3">
+<h4 class="font-label-lg text-label-lg uppercase tracking-widest text-primary mb-2">Visit</h4>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors underline-offset-4 hover:underline" href="#">
+                    15627 MS-503, Decatur, MS 39327
+                </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors underline-offset-4 hover:underline" href="tel:6016352077">
+                    (601) 635-2077
+                </a>
+</div>
+<div class="col-span-1 flex flex-col space-y-3">
+<h4 class="font-label-lg text-label-lg uppercase tracking-widest text-primary mb-2">Inquire</h4>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors underline-offset-4 hover:underline" href="#">
+                    Membership Inquiry
+                </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors underline-offset-4 hover:underline" href="#">
+                    Plan an Event
+                </a>
+</div>
+<div class="col-span-1 flex flex-col space-y-3">
+<h4 class="font-label-lg text-label-lg uppercase tracking-widest text-primary mb-2">Legal</h4>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors underline-offset-4 hover:underline" href="#">
+                    Privacy Policy
+                </a>
+</div>
+</div>
+</footer>
+</body></html>
